@@ -1,0 +1,38 @@
+<form method="POST" id="add_user">
+    <div class="new_user">
+
+        <div class="form-group">
+            <label for="steam_id" class="text-light">SteamID</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" id="steam_id" name="steam_id" value="" placeholder="Steam ID">
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id='radio-m' name="gender" value="Male">
+                <label for="radio-m" id="gender" class="radio-label">Male</label>
+            </div>
+
+            <div class="radio inline">
+                <input type="radio" id='radio-f' name="gender" value="Female">
+                <label for="radio-f" class="radio-label">Female</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="rank" class="text-light">Rank</label>
+            <input type="text" name="rank" id="rank" value="" placeholder="Rank">
+        </div>
+
+        <div class="form-group">
+            <label for="weapon" class="text-light">Favourite Weapon</label>
+            <input type="text" name="weapon" id="weapon" value="" placeholder="Favourite Weapon">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark">Create new player</button>
+        </div>
+
+    </div>
+</form>
