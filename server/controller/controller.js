@@ -19,7 +19,8 @@ exports.create = (req, res) => {
 
     // Save player in DB
     player.save().then(data => {
-        res.send(data)
+        //res.send(data)
+        res.redirect('/add-user')
     }).catch(err => {
         res.status(500).send({
             message: err.message || '[!] Some error occurred while creating a player!'
@@ -30,13 +31,31 @@ exports.create = (req, res) => {
 // Retrieve and return all users / single user
 
 exports.find = (req, res) => {
-    playerDB.find()
-        .then(player => {
-            res.send(player)
-        })
-        .catch(err => {
-            res.status(500).send( {message: err.message || '[!] Error occurred while finding player information!'})
-        })
+
+    if(req.query.id) {
+        const id = req.query.id
+
+        playerDB.findById(id)
+            .then(data => {
+                if(!data) {
+                    res.status(404).send({ message: `[!] Not founded user with ID: ${id}!`})
+                } else {
+                    res.send(data)
+                }
+            })
+            .catch(err => {
+                res.status(500).send( { message: err.message || `[!] Error retrieving user with ID: ${id}!`})
+            })
+    } else {
+        playerDB.find()
+            .then(player => {
+                res.send(player)
+            })
+            .catch(err => {
+                res.status(500).send( {message: err.message || '[!] Error occurred while finding player information!'})
+            })
+    }
+
 }
 
 // Update a new identified user by id

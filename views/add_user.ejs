@@ -17,5 +17,10 @@
 
     </div>
 </main>
-
+<script>
+    document.querySelector("#add_user > div > div:nth-child(5) > button").addEventListener('click', () => {
+        document.getElementById("add_user").submit()
+        alert('Data inserted!')
+    })
+</script>
 <%- include('include/_footer') %>

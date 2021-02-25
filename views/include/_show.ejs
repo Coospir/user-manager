@@ -1,11 +1,13 @@
+<% for(let i = 0; i < players.length; i++) {%>
 <tr>
-    <td>1</td>
-    <td>VanChik</td>
-    <td>Male</td>
-    <td>Silver</td>
-    <td>AWP</td>
+    <td><%= players[i]._id %></td>
+    <td><%= players[i].steamID %></td>
+    <td><%= players[i].gender %></td>
+    <td><%= players[i].rank %></td>
+    <td><%= players[i].weapon %></td>
     <td>
-        <a href="/update-user" class="btn border-shadow update">!</a>
+        <a href="/update-user?id=<%= players[i]._id%>" class="btn border-shadow update">!</a>
         <a href="/delete-user" class="btn border-shadow delete">x</a>
     </td>
 </tr>
+<% } %>
